@@ -2,6 +2,7 @@ package br.com.senai;
 
 public class Funcionario {
 
+	int id;
 	String nome;
 	int idade;
 	String email;
@@ -12,7 +13,12 @@ public class Funcionario {
 	char tipo;
 	int funcionariosG;
 	
-	
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
 	public String getNome() {
 		return nome;
 	}
@@ -67,7 +73,7 @@ public class Funcionario {
 	public void setFuncionariosG(int funcionariosG) {
 		this.funcionariosG = funcionariosG;
 	}
-
 	
-
+	
+	
 }
