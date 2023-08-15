@@ -8,6 +8,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTable;
 import javax.swing.JScrollPane;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.JButton;
 
 public class TelaFunc extends JFrame {
 
@@ -42,7 +43,12 @@ public class TelaFunc extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(65, 27, 333, 137);
+		contentPane.add(scrollPane);
+		
 		table = new JTable();
+		scrollPane.setViewportView(table);
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
 				{null, null, null, null, null},
@@ -56,7 +62,13 @@ public class TelaFunc extends JFrame {
 				"Nome", "Idade", "Email", "G\u00EAnero", "Telefone"
 			}
 		));
-		table.setBounds(64, 47, 333, 103);
-		contentPane.add(table);
+		
+		JButton btnNewButton = new JButton("Editar");
+		btnNewButton.setBounds(46, 207, 89, 30);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Excluir");
+		btnNewButton_1.setBounds(308, 207, 89, 30);
+		contentPane.add(btnNewButton_1);
 	}
 }
