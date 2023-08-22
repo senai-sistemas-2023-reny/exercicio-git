@@ -6,14 +6,24 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTable;
-import javax.swing.JScrollPane;
+import java.awt.Font;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.border.EtchedBorder;
+import javax.swing.border.BevelBorder;
+import javax.swing.border.CompoundBorder;
+import javax.swing.border.LineBorder;
+import java.awt.Color;
 import javax.swing.JButton;
+import javax.swing.JScrollPane;
+import javax.swing.border.MatteBorder;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class TelaFunc extends JFrame {
 
 	private JPanel contentPane;
-	private JTable table;
+	private final JTable table = new JTable();
+	private JScrollPane scrollPane;
 
 	/**
 	 * Launch the application.
@@ -35,22 +45,28 @@ public class TelaFunc extends JFrame {
 	 * Create the frame.
 	 */
 	public TelaFunc() {
+		setTitle("Funcionários");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 514, 321);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JScrollPane scrollPane = new JScrollPane();
-		scrollPane.setBounds(65, 27, 333, 137);
+		scrollPane = new JScrollPane();
+		scrollPane.setViewportBorder(new LineBorder(new Color(0, 0, 0)));
+		scrollPane.setBounds(26, 13, 444, 213);
 		contentPane.add(scrollPane);
-		
-		table = new JTable();
 		scrollPane.setViewportView(table);
 		table.setModel(new DefaultTableModel(
 			new Object[][] {
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
+				{null, null, null, null, null},
 				{null, null, null, null, null},
 				{null, null, null, null, null},
 				{null, null, null, null, null},
@@ -62,13 +78,20 @@ public class TelaFunc extends JFrame {
 				"Nome", "Idade", "Email", "G\u00EAnero", "Telefone"
 			}
 		));
+		table.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		
-		JButton btnNewButton = new JButton("Editar");
-		btnNewButton.setBounds(46, 207, 89, 30);
+		JButton btnNewButton = new JButton("Excluir");
+		btnNewButton.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnNewButton.setBounds(365, 235, 104, 41);
 		contentPane.add(btnNewButton);
 		
-		JButton btnNewButton_1 = new JButton("Excluir");
-		btnNewButton_1.setBounds(308, 207, 89, 30);
+		JButton btnNewButton_1 = new JButton("Editar");
+		btnNewButton_1.setFont(new Font("Tahoma", Font.BOLD, 12));
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		btnNewButton_1.setBounds(25, 236, 109, 40);
 		contentPane.add(btnNewButton_1);
 	}
 }
